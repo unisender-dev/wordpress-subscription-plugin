@@ -11,7 +11,9 @@ function wpunisender_action_callback()
     }
     $api = new \Unisender\ApiWrapper\UnisenderApi($api_key);
 
-    $formData = json_decode(str_replace('\"', '"', $_POST['data']), true);
+    $data = str_replace(['\"','\\\"'], ['"', '\"'], $_POST['data']);
+    $formData = json_decode($data, true);
+
     $double_optin = 3;
     if (empty($formData)) {
         wpunisender_subscribe_send_error_response([

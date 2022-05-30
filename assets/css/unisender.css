@@ -130,6 +130,7 @@
     line-height: inherit;
     outline: none;
     margin: 0;
+    box-sizing: border-box;
 }
 
 .b-unisender-form .b-unisender-field__error-text {
